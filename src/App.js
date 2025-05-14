@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import HeroSection from './components/HeroSection';
 import ResumeSections from './components/ResumeSections';
+import CopyrightFooter from './components/CopyrightFooter';
 
 const theme = createTheme({
   palette: {
@@ -32,6 +33,7 @@ function App() {
       <ParallaxProvider>
         <HeroSection />
         <ResumeSections />
+        <CopyrightFooter />
       </ParallaxProvider>
     </ThemeProvider>
   );

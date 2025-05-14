@@ -1,6 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Typography, Grid, Paper, Chip, Stack } from '@mui/material';
 import { Parallax } from 'react-scroll-parallax';
+import HumanCheck from './HumanCheck';
+
+import HumanCheckModal from './HumanCheckModal';
+
+function PDFResumeWithHumanCheck() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [humanVerified, setHumanVerified] = useState(false);
+
+  const handleButtonClick = () => {
+    if (humanVerified) {
+      window.open(require('../assets/Shaun_Stephenson_Resume_CS.pdf'), '_blank');
+    } else {
+      setModalOpen(true);
+    }
+  };
+
+  const handleSuccess = () => {
+    setModalOpen(false);
+    window.open(require('../assets/Shaun_Stephenson_Resume_CS.pdf'), '_blank');
+  };
+
+  return (
+    <Paper sx={{ ...sectionStyle, textAlign: 'center', background: '#f5f5f5', mt: 6 }}>
+      <Typography variant="h5" sx={{ fontWeight: 700, color: vibrantColors[0], mb: 2 }}>
+        Need a printable version?
+      </Typography>
+      <Button
+        variant="contained"
+        size="large"
+        onClick={handleButtonClick}
+        sx={{
+          background: 'linear-gradient(90deg, #ff6b6b, #f8e71c, #00c3ff, #7d5fff)',
+          color: '#111',
+          fontWeight: 700,
+          px: 4,
+          py: 1.5,
+          borderRadius: '32px',
+          boxShadow: '0 4px 32px #0008',
+          textTransform: 'none',
+          fontSize: '1.1rem',
+          '&:hover': {
+            background: 'linear-gradient(90deg, #7d5fff, #00c3ff, #f8e71c, #ff6b6b)',
+          },
+        }}
+      >
+        Printable PDF Resume
+      </Button>
+      <HumanCheckModal open={modalOpen && !humanVerified} onClose={() => setModalOpen(false)} onSuccess={handleSuccess} setHumanVerified={setHumanVerified} />
+    </Paper>
+  );
+}
+
 
 const sectionStyle = {
   background: '#fff',
@@ -195,34 +247,7 @@ export default function ResumeSections() {
       </Parallax>
       {/* Printable PDF Resume */}
       <Parallax speed={2}>
-        <Paper sx={{ ...sectionStyle, textAlign: 'center', background: '#f5f5f5', mt: 6 }}>
-          <Typography variant="h5" sx={{ fontWeight: 700, color: vibrantColors[0], mb: 2 }}>
-            Need a printable version?
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            href={require('../assets/Shaun_Stephenson_Resume_CS.pdf')}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              background: 'linear-gradient(90deg, #ff6b6b, #f8e71c, #00c3ff, #7d5fff)',
-              color: '#111',
-              fontWeight: 700,
-              px: 4,
-              py: 1.5,
-              borderRadius: '32px',
-              boxShadow: '0 4px 32px #0008',
-              textTransform: 'none',
-              fontSize: '1.1rem',
-              '&:hover': {
-                background: 'linear-gradient(90deg, #7d5fff, #00c3ff, #f8e71c, #ff6b6b)',
-              },
-            }}
-          >
-            Printable PDF Resume
-          </Button>
-        </Paper>
+        <PDFResumeWithHumanCheck />
       </Parallax>
     </Box>
   );

@@ -1,11 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Button, Stack, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { Parallax } from 'react-scroll-parallax';
+import HumanCheckModal from './HumanCheckModal';
 
 const vibrantGradient = 'linear-gradient(90deg, #ff6b6b, #f8e71c, #00c3ff, #7d5fff)';
+
+function ContactIconsWithHumanCheck() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [pendingAction, setPendingAction] = useState(null);
+  const [humanVerified, setHumanVerified] = useState(false);
+
+  const handleIconClick = (action) => {
+    if (humanVerified) {
+      action();
+    } else {
+      setPendingAction(() => action);
+      setModalOpen(true);
+    }
+  };
+
+  const handleSuccess = () => {
+    setModalOpen(false);
+    if (pendingAction) {
+      pendingAction();
+    }
+  };
+
+  return (
+    <>
+      {/* All socials and contact links protected by human check */}
+      <Stack direction="row" spacing={2} sx={{ mb: 3, justifyContent: 'center' }}>
+        <IconButton
+          onClick={() => handleIconClick(() => window.open('https://instagram.com/shaunfitzgarald', '_blank'))}
+          sx={{ color: '#fff', background: '#E1306C', '&:hover': { background: '#C13584' } }}
+        >
+          <InstagramIcon />
+        </IconButton>
+        <IconButton
+          onClick={() => handleIconClick(() => window.open('https://github.com/shaunfitzgarald', '_blank'))}
+          sx={{ color: '#fff', background: '#333', '&:hover': { background: '#000' } }}
+        >
+          <GitHubIcon />
+        </IconButton>
+        <IconButton
+          onClick={() => handleIconClick(() => window.open('https://linkedin.com/in/shaunfitzgarald', '_blank'))}
+          sx={{ color: '#fff', background: '#0077b5', '&:hover': { background: '#005983' } }}
+        >
+          <LinkedInIcon />
+        </IconButton>
+        <IconButton
+          onClick={() => handleIconClick(() => window.location.href = 'mailto:shaunfitzgarald@gmail.com')}
+          sx={{ color: '#fff', background: '#d44638', '&:hover': { background: '#a23328' } }}
+        >
+          <EmailIcon />
+        </IconButton>
+        <IconButton
+          onClick={() => handleIconClick(() => window.location.href = 'tel:15596678555')}
+          sx={{ color: '#fff', background: '#34c759', '&:hover': { background: '#228b3c' } }}
+        >
+          <PhoneIcon />
+        </IconButton>
+      </Stack>
+      <HumanCheckModal open={modalOpen && !humanVerified} onClose={() => setModalOpen(false)} onSuccess={handleSuccess} setHumanVerified={setHumanVerified} />
+    </>
+  );
+}
+
 
 export default function HeroSection() {
   return (
@@ -44,27 +109,7 @@ export default function HeroSection() {
         </Typography>
       </Parallax>
       <Parallax speed={-10}>
-        <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
-          <IconButton
-            href="https://linkedin.com/in/shaunfitzgarald"
-            target="_blank"
-            sx={{ color: '#fff', background: '#0077b5', '&:hover': { background: '#005983' } }}
-          >
-            <LinkedInIcon />
-          </IconButton>
-          <IconButton
-            href="mailto:shaunfitzgarald@gmail.com"
-            sx={{ color: '#fff', background: '#d44638', '&:hover': { background: '#a23328' } }}
-          >
-            <EmailIcon />
-          </IconButton>
-          <IconButton
-            href="tel:15596678555"
-            sx={{ color: '#fff', background: '#34c759', '&:hover': { background: '#228b3c' } }}
-          >
-            <PhoneIcon />
-          </IconButton>
-        </Stack>
+        <ContactIconsWithHumanCheck />
       </Parallax>
       <Parallax speed={15}>
         <Button
