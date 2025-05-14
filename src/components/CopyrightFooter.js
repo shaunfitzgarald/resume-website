@@ -10,6 +10,10 @@ export default function CopyrightFooter() {
         <Link href="https://github.com/shaunfitzgarald" target="_blank" rel="noopener" underline="hover" sx={{ color: '#fff', fontWeight: 600 }}>
           shaunfitzgarald
         </Link>
+        {' '}·{' '}
+        <Link href="https://shaunfitzgarald.com" target="_blank" rel="noopener" underline="hover" sx={{ color: '#fff', fontWeight: 600 }}>
+          shaunfitzgarald.com
+        </Link>
       </Typography>
     </Box>
   );
