@@ -130,7 +130,16 @@ export default function HeroSection() {
               background: 'linear-gradient(90deg, #7d5fff, #00c3ff, #f8e71c, #ff6b6b)',
             },
           }}
-          href="#experience"
+          onClick={() => {
+            const section = document.getElementById('experience');
+            if (section) {
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              section.classList.add('highlight-animate');
+              setTimeout(() => {
+                section.classList.remove('highlight-animate');
+              }, 1000);
+            }
+          }}
         >
           View My Experience
         </Button>

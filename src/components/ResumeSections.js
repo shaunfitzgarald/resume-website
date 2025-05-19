@@ -1,3 +1,4 @@
+import '../highlight-animate.css';
 import React, { useState } from 'react';
 import { Box, Button, Typography, Grid, Paper, Chip, Stack } from '@mui/material';
 import { Parallax } from 'react-scroll-parallax';
@@ -11,7 +12,7 @@ function PDFResumeWithHumanCheck() {
 
   const handleButtonClick = () => {
     if (humanVerified) {
-      window.open(require('../assets/Shaun_Stephenson_Resume_CS.pdf'), '_blank');
+      window.open(require('../assets/Shaun_Stephenson_-_Barista,_Server,_Cafe_front_of_house (2).pdf'), '_blank');
     } else {
       setModalOpen(true);
     }
@@ -19,7 +20,7 @@ function PDFResumeWithHumanCheck() {
 
   const handleSuccess = () => {
     setModalOpen(false);
-    window.open(require('../assets/Shaun_Stephenson_Resume_CS.pdf'), '_blank');
+    window.open(require('../assets/Shaun_Stephenson_-_Barista,_Server,_Cafe_front_of_house (2).pdf'), '_blank');
   };
 
   return (
@@ -75,180 +76,149 @@ const skills = [
 export default function ResumeSections() {
   return (
     <Box sx={{ maxWidth: 900, mx: 'auto', mt: { xs: 4, md: 8 }, zIndex: 2 }}>
-      {/* Objective */}
-      <Parallax speed={-10}>
-        <Paper sx={{ ...sectionStyle }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: vibrantColors[3] }}>
-            Objective
+      <Paper sx={{ ...sectionStyle, mb: 4 }}>
+        <Grid container spacing={2} alignItems="center">
+          <Grid item xs={12} md={8}>
+            <Typography variant="h4" sx={{ fontWeight: 700, mb: 0.5 }}>
+              Shaun Stephenson
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 0.5 }}>
+              shaunfitzgarald@gmail.com &nbsp;|&nbsp; 559-667-8555
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>
+              3942 8th Ave #17, San Diego, CA 92103
+            </Typography>
+            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: '#333', mb: 1 }}>
+              Barista, Server, Cafe front of house
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>
+              Energetic, detail-oriented server/barista with a proven track record in fast-paced, high-volume café environments.<br />
+              Currently pursuing a degree in Computer Science while delivering polished React apps for clients. Seeking a full-time
+              morning café or bakery role that leverages my customer service expertise, multitasking skills, and technical aptitude.
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Paper sx={{ ...sectionStyle, mb: 4 }} id="experience">
+        <Typography variant="h5" sx={{ fontWeight: 700, color: vibrantColors[2], mb: 1 }}>
+          Career Experience
+        </Typography>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Freelance Web Developer at Independent Contractor, San Diego
           </Typography>
-          <Typography>
-            Energetic, detail-oriented server/barista with extensive customer service experience in high-volume cafés. Currently studying Computer Science at San Diego Mesa College while developing React apps for clients. Seeking a full-time morning shift at a café/bakery to contribute to a fast-paced, customer-focused team.
+          <Typography variant="subtitle2" sx={{ color: '#555' }}>
+            January 2024 — Present
           </Typography>
-        </Paper>
-      </Parallax>
-      {/* Relevant Experience */}
-      <Parallax speed={8}>
-        <Paper sx={{ ...sectionStyle }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: vibrantColors[0] }}>
-            Relevant Experience
-          </Typography>
-          <ul style={{ margin: 0, paddingLeft: 20 }}>
-            <li>Strong customer-facing experience from fast-paced café roles, including Arely’s French Bakery and The French Gourmet.</li>
-            <li>Comfortable working early morning shifts and weekends with consistent punctuality and reliability.</li>
-            <li>High-volume order handling (75+ customers per shift), POS system use (Toast), and cash handling accuracy.</li>
-            <li>Demonstrated multitasking under pressure and positive team collaboration.</li>
-            <li>Clear communicator with an upbeat attitude, ideal for front-of-house service roles.</li>
+          <ul>
+            <li>Delivered modern, responsive React apps for multiple clients with a focus on UX and detail.</li>
+            <li>Balanced four client projects alongside full-time coursework, showcasing strong time management.</li>
+            <li>Communicated project needs effectively with clients, turning vague ideas into functioning applications.</li>
           </ul>
-        </Paper>
-      </Parallax>
-      {/* Experience */}
-      <Parallax speed={-8}>
-        <Paper sx={{ ...sectionStyle }} id="experience">
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: vibrantColors[2] }}>
-            Experience
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Server / Barista at Arely’s French Bakery, San Diego
           </Typography>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              Freelance Web Developer - San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Independent Contractor | Jan 2024 - Present
-            </Typography>
-            <ul>
-              <li>Juggled four client-facing React app projects while enrolled full-time in college.</li>
-              <li>Delivered high-quality front-end solutions with strong attention to design, usability, and detail.</li>
-              <li>Balanced dev deadlines with academic workload - demonstrating reliability and time management.</li>
-            </ul>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              Server / Barista - Arely’s French Bakery, San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Mar 2023 - Aug 2023
-            </Typography>
-            <ul>
-              <li>Served 75+ guests per shift in a busy café, handling orders, food delivery, espresso drinks, and POS.</li>
-              <li>Maintained calm under pressure while multitasking and ensuring customer satisfaction.</li>
-              <li>Known for cheerful demeanor and efficient service - thrived in a fast-paced environment.</li>
-            </ul>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              Server / Barista - The French Gourmet, San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Nov 2021 - Jun 2022
-            </Typography>
-            <ul>
-              <li>Took custom orders, brewed specialty coffee drinks, and prepped pickup orders.</li>
-              <li>Managed end-of-day closing procedures and cash handling with 100% accuracy.</li>
-              <li>Cross-trained across roles and praised for adaptability and team spirit.</li>
-            </ul>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              Fulfillment Technician - Curology, Inc., San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              May 2018 – May 2019
-            </Typography>
-            <ul>
-              <li>Processed and fulfilled 650+ shipments daily with 99% order accuracy and attention to detail.</li>
-              <li>Resolved 250+ order issues, contributing to a 95% resolution rate and smooth team workflow.</li>
-              <li>Communicated and collaborated with coworkers using Slack and Gmail, similar to busy café coordination.</li>
-              <li>Organized product packaging and labeling tasks with speed and consistency under time pressure.</li>
-              <li>Followed strict safety and hygiene procedures relevant to food service and customer safety.</li>
-            </ul>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              Personal Executive Assistant - Independent Contractor, San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Apr 2018 - Jan 2020
-            </Typography>
-            <ul>
-              <li>Managed scheduling, travel, and administrative support for C-level executive.</li>
-              <li>Maintained confidentiality and organized logistics with precision and time management.</li>
-              <li>Demonstrated communication and multitasking skills in high-stakes environments.</li>
-              <li>Provided front-facing support and coordination, applicable to customer service roles.</li>
-            </ul>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              Brand Representative - Abercrombie & Fitch/Hollister Co., San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Jun 2013 - Jan 2018
-            </Typography>
-            <ul>
-              <li>Trained new hires and engaged with customers to provide tailored recommendations.</li>
-              <li>Maintained store cleanliness, visual standards, and a polished, professional demeanor.</li>
-              <li>Resolved customer concerns on the floor, demonstrating patience and communication.</li>
-              <li>Promoted store events and products, enhancing customer experiences and loyalty.</li>
-            </ul>
-          </Box>
-        </Paper>
-      </Parallax>
-      {/* Education */}
-      <Parallax speed={6}>
-        <Paper sx={{ ...sectionStyle }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: vibrantColors[4] }}>
-            Education
+          <Typography variant="subtitle2" sx={{ color: '#555' }}>
+            March 2023 — August 2023
           </Typography>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              San Diego Mesa College – San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Associates Degree for Transfer, Computer Science (In Progress)
-            </Typography>
-            <Typography variant="body2">
-              Courses: Java Programming, Computer Organization & Assembly Language<br />
-              Expected Transfer: 2025
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              LEARN Academy – San Diego, CA
-            </Typography>
-            <Typography variant="subtitle2" sx={{ color: '#555' }}>
-              Full-Stack Web Development Bootcamp | Graduated Jan 2024
-            </Typography>
-            <Typography variant="body2">
-              Award: Outstanding Performance in React Framework Development
-            </Typography>
-          </Box>
-        </Paper>
-      </Parallax>
-      {/* Skills */}
-      <Parallax speed={-4}>
-        <Paper sx={{ ...sectionStyle }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: vibrantColors[5] }}>
-            Skills
+          <ul>
+            <li>Served 75+ guests per shift, mastering espresso prep, POS (Toast), and food handling.</li>
+            <li>Prioritized customer satisfaction while maintaining speed and accuracy during peak hours.</li>
+            <li>Trusted with opening duties and shift coverage due to punctuality and reliability.</li>
+          </ul>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Server / Barista at The French Gourmet, San Diego
           </Typography>
-          <Stack direction="row" spacing={1} flexWrap="wrap">
-            {skills.map((skill, i) => (
-              <Chip
-                key={skill}
-                label={skill}
-                sx={{
-                  background: vibrantColors[i % vibrantColors.length],
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: '1rem',
-                  mb: 1,
-                }}
-              />
-            ))}
-          </Stack>
-        </Paper>
-      </Parallax>
-      {/* Printable PDF Resume */}
+          <Typography variant="subtitle2" sx={{ color: '#555' }}>
+            November 2021 — June 2022
+          </Typography>
+          <ul>
+            <li>Operated front-of-house during peak periods, balancing barista work and customer service.</li>
+            <li>Closed down café independently, managing registers and cleaning protocols flawlessly.</li>
+            <li>Known for versatility, frequently cross-trained and moved between roles as needed.</li>
+          </ul>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Fulfillment Technician at Curology, Inc., San Diego
+          </Typography>
+          <Typography variant="subtitle2" sx={{ color: '#555' }}>
+            May 2018 — May 2019
+          </Typography>
+          <ul>
+            <li>Processed 650+ daily shipments with 99% accuracy in a high-pressure logistics environment.</li>
+            <li>Resolved over 250 order issues and contributed to a 95% team resolution rate.</li>
+            <li>Maintained clean, efficient packaging stations with adherence to FDA-compliant hygiene protocols.</li>
+          </ul>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Personal Executive Assistant at Independent Contractor, San Diego
+          </Typography>
+          <Typography variant="subtitle2" sx={{ color: '#555' }}>
+            April 2018 — January 2020
+          </Typography>
+          <ul>
+            <li>Managed scheduling, travel, and administrative tasks for a C-level executive.</li>
+            <li>Prioritized discretion, proactive problem-solving, and logistical clarity.</li>
+            <li>Operated across multiple time zones and calendars with zero missed deadlines.</li>
+          </ul>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Brand Representative at Abercrombie & Fitch / Hollister Co., San Diego
+          </Typography>
+          <Typography variant="subtitle2" sx={{ color: '#555' }}>
+            June 2013 — January 2018
+          </Typography>
+          <ul>
+            <li>Onboarded and trained new employees on retail standards and customer service practices.</li>
+            <li>Kept store visuals pristine and maintained a consistent brand image.</li>
+            <li>Actively solved customer concerns on the floor with empathy and patience.</li>
+          </ul>
+        </Box>
+      </Paper>
+      <Paper sx={{ ...sectionStyle, mb: 4 }}>
+        <Typography variant="h5" sx={{ fontWeight: 700, color: vibrantColors[4], mb: 1 }}>
+          Education
+        </Typography>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="body1">
+            <b>B.S., Human Biology | Minor: International Business & German</b><br />
+            September 2014 — June 2018<br />
+            University of California, San Diego, San Diego
+          </Typography>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="body1">
+            <b>Intensive German Language Program</b><br />
+            August 2016 — February 2017<br />
+            Die Neue Schule, Berlin
+          </Typography>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="body1">
+            <b>Associate Degree for Transfer, Computer Science (In Progress)</b><br />
+            January 2025<br />
+            San Diego Mesa College, San Diego
+          </Typography>
+        </Box>
+        <Box>
+          <Typography variant="body1">
+            <b>Full-Stack Web Development Bootcamp | Graduated</b><br />
+            January 2024<br />
+            LEARN Academy, San Diego
+          </Typography>
+        </Box>
+      </Paper>
       <Parallax speed={2}>
         <PDFResumeWithHumanCheck />
       </Parallax>
     </Box>
   );
 }
+
