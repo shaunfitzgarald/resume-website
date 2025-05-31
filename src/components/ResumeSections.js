@@ -79,22 +79,19 @@ export default function ResumeSections() {
       <Paper sx={{ ...sectionStyle, mb: 4 }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} md={8}>
-            <Typography variant="h4" sx={{ fontWeight: 700, mb: 0.5 }}>
-              Shaun Stephenson
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 0.5 }}>
-              shaunfitzgarald@gmail.com &nbsp;|&nbsp; 559-667-8555
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 1 }}>
-              3942 8th Ave #17, San Diego, CA 92103
-            </Typography>
+          <Typography variant="h5" sx={{ fontWeight: 700, color: vibrantColors[6], mb: 1 }}>
+          Objective
+        </Typography>
             <Typography variant="subtitle1" sx={{ fontWeight: 600, color: '#333', mb: 1 }}>
               Barista, Server, Cafe front of house
+            </Typography>
+            <Typography variant="subtitle2" sx={{ fontWeight: 600, color: vibrantColors[5], mb: 1 }}>
+              Based in San Diego, CA
             </Typography>
             <Typography variant="body1" sx={{ mb: 1 }}>
               Energetic, detail-oriented server/barista with a proven track record in fast-paced, high-volume café environments.<br />
               Currently pursuing a degree in Computer Science while delivering polished React apps for clients. Seeking a full-time
-              morning café or bakery role that leverages my customer service expertise, multitasking skills, and technical aptitude.
+              café or bakery role that leverages my customer service expertise, multitasking skills, and technical aptitude.
             </Typography>
           </Grid>
         </Grid>
